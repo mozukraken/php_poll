@@ -9,6 +9,20 @@ class Poll {
     $this->_connectDB();
   }
 
+  public function post() {
+    try {
+      $this->_validateAnswer();
+      $this->save();
+      // redirect to resulut.php
+      header('Location: http://' . $_SERVER['HTTP_HOST'] . '/result.php');
+    } catch (\Exception $e) {
+      // set error
+      // redirect to index.php
+      header('Location: http://' . $_SERVER['HTTP_HOST']);
+    }
+    exit;
+  }
+
   private function _connectDB() {
     try {
       $this->_db = new \PDO(DSN, DB_USERNAME, DB_PASSWORD);
