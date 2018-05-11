@@ -1,7 +1,7 @@
 <?php
 
-require_once(__DIR__ . '/config.php')
-require_once(__DIR__ . '/Poll.php')
+require_once(__DIR__ . '/config.php');
+require_once(__DIR__ . '/Poll.php');
 
 try {
   $poll = new \MyApp\Poll();
@@ -29,9 +29,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <div class="box" id="box_0" data-id="0"></div>
         <div class="box" id="box_1" data-id="1"></div>
         <div class="box selected" id="box_2" data-id="2"></div>
+        <input type="hidden" id="answer" name="answer" value="">
       </div>
       <div class="" id="btn">Vote</div>
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+    $(function() {
+      'use strict';
+
+      $('.box').on('click', function() {
+        $('.box').removeClass('selected');
+        $(this).addClass('selected');
+        $('#answer').val($(this).data('id'));
+      });
+    });
+    </script>
   </body>
 </html>

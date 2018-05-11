@@ -12,8 +12,8 @@ class Poll {
   public function post() {
     try {
       $this->_validateAnswer();
-      $this->save();
-      // redirect to resulut.php
+      $this->_save();
+      // redirect to result.php
       header('Location: http://' . $_SERVER['HTTP_HOST'] . '/result.php');
     } catch (\Exception $e) {
       // set error
