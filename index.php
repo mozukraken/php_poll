@@ -13,6 +13,8 @@ try {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $poll->post();
 }
+
+$err = $poll->getError();
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +44,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $('.box').removeClass('selected');
         $(this).addClass('selected');
         $('#answer').val($(this).data('id'));
+      });
+
+      $('#btn').on('click', function() {
+        if ($('#answer').val() === '') {
+          alert('選んでね');
+        } else {
+          $('form').submit();
+        }
       });
     });
     </script>
