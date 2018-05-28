@@ -25,6 +25,9 @@ $err = $poll->getError();
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
+    <?php if (isset($err)) : ?>
+    <div class="error"><?+ h($err; ?></div>
+    <?php endif; ?>
     <h1>Which do you like best?</h1>
     <form class="" action="" method="post">
       <div class="row">
@@ -53,6 +56,8 @@ $err = $poll->getError();
           $('form').submit();
         }
       });
+
+      $('.error').fadeOut(3000)
     });
     </script>
   </body>
