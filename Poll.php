@@ -50,14 +50,19 @@ class Poll {
     return $err;
   }
 
-  public function _validateAnswer() {
-    if (!isset($_POST['answer']) || !in_array($_POST['answer']. [0, 1, 2])) {
+  private function _validateAnswer() {
+    if (!isset($_POST['answer']) || !in_array($_POST['answer'], [0, 1, 2])) {
       throw new \Exception("invalid answer");
     }
   }
 
-  public function _save() {
-
+  private function _save() {
+    // insert文
+    $sql = "insert into answers (answer, created) values (:answer, now())";
+    $stmt = $this->_db->prepare($sql);
+    $stmt->bindValue(':answer', (int)$_POST['answer'], \PDO::PARAM_INT);
+    $stmt->execute();
+    exit;
   }
 
   private function _connectDB() {
