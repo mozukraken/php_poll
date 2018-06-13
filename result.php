@@ -10,6 +10,7 @@ try {
   exit;
 }
 
+$results = $poll->getResults();
 $results = [
   0 => 12,
   1 => 32,
