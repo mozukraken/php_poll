@@ -26,16 +26,16 @@ $err = $poll->getError();
   </head>
   <body>
     <?php if (isset($err)) : ?>
-    <div class="error"><?+ h($err; ?></div>
+    <div class="error"><?= h($err); ?></div>
     <?php endif; ?>
     <h1>Which do you like best?</h1>
     <form class="" action="" method="post">
       <div class="row">
         <div class="box" id="box_0" data-id="0"></div>
         <div class="box" id="box_1" data-id="1"></div>
-        <div class="box selected" id="box_2" data-id="2"></div>
+        <div class="box" id="box_2" data-id="2"></div>
         <input type="hidden" id="answer" name="answer" value="">
-        <input type="hidden" name="token" value="<?= h($_SESSION['token']) ?>">
+        <input type="hidden" name="token" value="<?= h($_SESSION['token']); ?>">
       </div>
       <div class="" id="btn">Vote</div>
     </form>
@@ -58,7 +58,7 @@ $err = $poll->getError();
         }
       });
 
-      $('.error').fadeOut(3000)
+      $('.error').fadeOut(3000);
     });
     </script>
   </body>

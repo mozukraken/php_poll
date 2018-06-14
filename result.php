@@ -11,11 +11,11 @@ try {
 }
 
 $results = $poll->getResults();
-$results = [
-  0 => 12,
-  1 => 32,
-  2 => 44
-];
+// $results = [
+//   0 => 12,
+//   1 => 32,
+//   2 => 44
+// ];
 
 ?>
 <!DOCTYPE html>
